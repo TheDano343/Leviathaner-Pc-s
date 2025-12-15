@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Header -->
+     @section('header')
+     <nav class="main-nav">
+            <div id="toggle-menu" class="toggle-menu">
+            <label for="toggle-menu-checkbox">
+                <img src="imagenes/simbolo.png" alt="" />
+            </label>
+            </div>
+
+            <input
+             type="checkbox" 
+                class="toggle-menu_checkbox"
+                id="toggle-menu-checkbox"
+                />
+
+            <ul id="main-menu" class="main-menu">
+            <li class="main-menu_item">
+                <a href="#inicio" class="main-menu_link">Inicio</a>
+            </li>
+
+            <li class="main-menu_item">
+                <a href="#proyectos" class="main-menu_link">Proyectos realizados</a>
+            </li>
+
+            <li class="main-menu_item">
+                <a href="#experiencia" class="main-menu_link">Experiencia laboral</a>
+            </li>
+
+            <li class="main-menu_item">
+                <a href="#contacto" class="main-menu_link">Contacto</a>
+            </li>
+            </ul>
+        </nav>
+     @endsection
+
+</body>
+</html>

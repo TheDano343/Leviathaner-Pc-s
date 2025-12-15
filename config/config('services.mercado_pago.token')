@@ -1,0 +1,1 @@
+config('services.mercado_pago.token')

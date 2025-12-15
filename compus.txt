@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('Computadoras_Armadas', function (Blueprint $table) {
+            $table->increments('idProducto');
+            $table->string('Nombre_del_producto');
+            $table->string('Modelo');
+            $table->foreign('Id_Tarjeta_Grafica')->references('idTarjetaGrafica')->on('tarjeta_graficas')->onUpdate('cascade');
+            $table->foreign('Id_Procesador')->references('idProcesador')->on('procesadors')->onUpdate('cascade');
+            $table->foreign('id_Ram_Cantidad')->references('idRam')->on('ram_cantidads')->onUpdate('cascade');
+            $table->foreign('Id_Gabinete')->references('idGabinetes')->on('gabinetes')->onUpdate('cascade');
+            $table->foreign('Id_Pantalla')->references('idPantallas')->on('pantallas')->onUpdate('cascade');
+            $table->foreign('Id_Teclado')->references('idTeclado')->on('teclados')->onUpdate('cascade');
+            $table->foreign('Id_Mouse')->references('idMouse')->on('mice')->onUpdate('cascade');
+            $table->text('Descripcion');
+            $table->decimal('Precio',10,2);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('productos');
+    }
+};
