@@ -43,6 +43,8 @@ Route::get('/', function(){
 });
 
 
+
+
 ////////////////////////////////// 
 
 // Seccion de administrador
