@@ -12,6 +12,6 @@ class CpuSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Cpu::factory(100)->create();
+        $this->call([CpuSeeder::class]);
     }
 }

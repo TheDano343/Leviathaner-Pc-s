@@ -7,42 +7,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  @vite(['resources/js/desaparecerFlash.js'])
+  @vite(['resources/css/app.css'])
 
 </head>
 
 @section('content')
 
-<div id="mensaje-exito" class="container">
-      @if(session()->has('success'))
-      <div class="alert alert-success">
-          {{session('success')}}
-      </div>
-    @endif
-</div>
-
 <body>
   <div class="container">
-
-    <div class="col-xs-6 mx-auto">
-      <form action="{{route('tienda.index')}}" method="GET">
-        <div class="d-flex">
-          <input type="text" name="busqueda" class="form-control">
-          <input type="submit" value="buscar" class="btn btn-primary">
-          <input type="submit" value="limpiar" class="btn btn-warning">
-
-        </div>
-      </form>
-    </div>
-    <br>
-
-    <br>
 
     <div class="row justify-content-center">
       @foreach($equipos as $equipo)
       <div class="col-md-4 mb-4">
 
-        <div class="card h-100">
+        <div class="card h-100" style="width: 18rem;">
           <a href="{{route('tienda.show', ['tienda'=>$equipo])}}">
 
             <img class="card-img-top" src="{{asset('storage/'.$equipo->Gabinete->Portada)}}" alt="Card image cap">
@@ -52,7 +30,6 @@
               <p class="card-text">{{$equipo->Procesador->Nombre_del_producto}}</p>
               <p class="card-text">{{$equipo->Ram->Nombre_del_producto}}</p>
               <p class="card-text">{{$equipo->Grafica->Nombre_del_producto}}</p>
-              <p class="card-text">{{$equipo->Categoria->Nombre}}</p>
               <p class="card-text">{{($equipo->Precio)}}</p>
             </div>
           </a>

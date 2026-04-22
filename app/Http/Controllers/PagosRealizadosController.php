@@ -10,6 +10,9 @@ use App\Models\PagosRealizados;
 use Session;
 use Stripe;
 
+// use Stripe\Stripe;
+
+
 use Illuminate\Http\Request;
 
 class PagosRealizadosController extends Controller
@@ -29,6 +32,7 @@ class PagosRealizadosController extends Controller
     public function checkout(Request $request)
     {   
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        // Stripe::setApiKey(config('services.stripe.secret'));
 
         $carritos = Carrito::all();
         $totalPrice = 0;
