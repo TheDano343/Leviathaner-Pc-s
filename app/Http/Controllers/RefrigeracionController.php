@@ -53,7 +53,7 @@ class RefrigeracionController extends Controller
     public function store(Request $request)
     {
        $params = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:refrigeracions',
             'Dimensiones_del_producto' => 'required',
             'Voltaje' => 'required',
             'Metodo_de_enfriamiento' => 'required',
@@ -99,7 +99,7 @@ class RefrigeracionController extends Controller
     public function update(Request $request, Refrigeracion $refrigeracion)
     {
         $data = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:refrigeracions',
             'Dimensiones_del_producto' => 'required',
             'Voltaje' => 'required',
             'Metodo_de_enfriamiento' => 'required',

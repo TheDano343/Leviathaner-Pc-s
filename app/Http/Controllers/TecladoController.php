@@ -52,7 +52,7 @@ class TecladoController
     public function store(Request $request)
     {
         $params = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:teclados',
             'Dispositivos_compatibles' => 'required',
             'Tegnologia_de_conectividad' => 'required',
             'Descripcion_del_teclado' => 'required',
@@ -98,7 +98,7 @@ class TecladoController
     public function update(Request $request, Teclado $teclado)
     {
         $data = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:teclados',
             'Dispositivos_compatibles' => 'required',
             'Tegnologia_de_conectividad' => 'required',
             'Descripcion_del_teclado' => 'required',

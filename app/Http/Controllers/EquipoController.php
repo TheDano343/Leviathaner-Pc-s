@@ -97,7 +97,7 @@ class EquipoController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-        'Nombre_producto' => 'required',
+        'Nombre_producto' => 'required|unique:equipos',
         'Tipo_de_tarjeta_grafica' => 'required',
         'procecadores_id' => 'required',
         'gabinetes_id' => 'required',
@@ -156,7 +156,7 @@ class EquipoController extends Controller
     public function update(Request $request, Equipo $equipo)
     {
       $data = $request->validate([
-        'Nombre_producto' => 'required',
+        'Nombre_producto' => 'required|unique:equipos',
         'Tipo_de_tarjeta_grafica' => 'required',
         'procecadores_id' => 'required',
         'gabinetes_id' => 'required',

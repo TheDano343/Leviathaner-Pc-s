@@ -47,7 +47,7 @@ class CpuController extends Controller
     public function store(Request $request)
     {
         $params = $request->validate([
-        'Nombre_del_producto' => 'required',
+        'Nombre_del_producto' => 'required|unique:cpus',
         'Fabricante_del_cpu' => 'required',
         'Modelo_del_cpu' => 'required',
         'Velocidad_del_cpu' => 'required',
@@ -89,7 +89,7 @@ class CpuController extends Controller
     public function update(Request $request, Cpu $cpu)
     {
         $data = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:cpus',
             'Fabricante_del_cpu' => 'required',
             'Modelo_del_cpu' => 'required',
             'Velocidad_del_cpu' => 'required',

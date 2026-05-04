@@ -56,7 +56,7 @@ class GabineteController
     {
       // $params : Almacena un arreglo de datos que resultan de la validacion, se usara para realizar el envio de la instacia Gabinete.
       $params = $request->validate([
-        'Nombre_del_producto' => 'required',
+        'Nombre_del_producto' => 'required|unique:gabinetes',
         'Marca' => 'required',
         'Tipo_de_estuche' => 'required',
         'Usos_recomendados_para_el_producto' => 'required',
@@ -113,7 +113,7 @@ class GabineteController
         // $data: Almacena un arreglo de datos que resultan de la validacion, se usara para realizar la actualizacion de la instacia Gabinete.
         // $request: valida los datos de la solicitud
        $data = $request->validate([
-        'Nombre_del_producto' => 'required',
+        'Nombre_del_producto' => 'required|unique:gabinetes',
         'Marca' => 'required',
         'Tipo_de_estuche' => 'required',
         'Usos_recomendados_para_el_producto' => 'required',

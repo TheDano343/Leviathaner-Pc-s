@@ -52,7 +52,7 @@ class ProcesadorController
     public function store(Request $request)
     {
         $params = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:procesadors',
             'Marca' => 'required',
             'Fabricante_del_CPU' => 'required',
             'Modelo_del_CPU' => 'required',
@@ -97,7 +97,7 @@ class ProcesadorController
     public function update(Request $request, Procesador $procesador)
     {
         $data = $request->validate([
-            'Nombre_del_producto'=>'required',
+            'Nombre_del_producto'=>'required|unique:procesadors',
             'Marca'=>'required',
             'Fabricante_del_CPU'=>'required',
             'Modelo_del_CPU'=>'required',

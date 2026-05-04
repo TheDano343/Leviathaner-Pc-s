@@ -50,7 +50,7 @@ class GraficaController extends Controller
     {
         
         $params = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:graficas',
             'Coprocesador' => 'required',
             'Marca' => 'required',
             'Ram_para_graficos' => 'required',
@@ -92,7 +92,7 @@ class GraficaController extends Controller
     public function update(Request $request, Grafica $grafica)
     {
         $data = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:graficas',
             'Coprocesador' => 'required',
             'Marca' => 'required',
             'Ram_para_graficos' => 'required',

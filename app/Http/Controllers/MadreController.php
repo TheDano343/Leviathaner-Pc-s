@@ -55,7 +55,7 @@ class MadreController extends Controller
     public function store(Request $request)
     {
         $params = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:madres',
             'Marca' => 'required',
             'Enchufe_de_CPU' => 'required',
             'Dispositivos_Compatibles' => 'required',
@@ -103,7 +103,7 @@ class MadreController extends Controller
     public function update(Request $request, Madre $madre)
     {
         $data = $request->validate([
-            'Nombre_del_producto' => 'required',
+            'Nombre_del_producto' => 'required|unique:madres',
             'Marca' => 'required',
             'Enchufe_de_CPU' => 'required',
             'Dispositivos_Compatibles' => 'required',

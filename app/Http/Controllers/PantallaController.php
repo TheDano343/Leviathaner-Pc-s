@@ -49,7 +49,7 @@ class PantallaController
     public function store(Request $request)
     {
        $params = $request->validate([
-            'Nombre_del_producto'=>'required',
+            'Nombre_del_producto'=>'required|unique:pantallas',
             'Resolucion'=>'required',
             'Tamaño_de_la_pantalla'=>'required',
             'Descripcion_de_la_superficie_de_la_pantalla'=>'required',
@@ -91,7 +91,7 @@ class PantallaController
     public function update(Request $request, Pantalla $pantalla)
     {
         $data = $request->validate([
-            'Nombre_del_producto'=>'required',
+            'Nombre_del_producto'=>'required|unique:pantallas',
             'Resolucion'=>'required',
             'Tamaño_de_la_pantalla'=>'required',
             'Descripcion_de_la_superficie_de_la_pantalla'=>'required',

@@ -31,7 +31,7 @@ class EstatusEntidadController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'Nombre_Estatus' => 'required'
+        'Nombre_Estatus' => 'required|unique:estatus_entidads'
         ]);
 
         EstatusEntidad::create($request->all());
@@ -60,7 +60,7 @@ class EstatusEntidadController extends Controller
     public function update(Request $request, EstatusEntidad $estatusEntidad)
     {
         $data = $request->validate([
-             'Nombre_Estatus' => 'required'
+             'Nombre_Estatus' => 'required|unique:estatus_entidads'
         ]);
 
         $estatusEntidad->update($data);

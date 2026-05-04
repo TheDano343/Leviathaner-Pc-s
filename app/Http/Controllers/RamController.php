@@ -51,7 +51,7 @@ class RamController extends Controller
     public function store(Request $request)
     {
        $params = $request->validate([
-            'Nombre_del_producto'=>'required',
+            'Nombre_del_producto'=>'required|unique:rams',
             'Marca'=>'required',
             'Tegnologia_de_la_memoria_ram'=>'required',
             'Tamaño_de_la_memoria'=>'required',
@@ -96,7 +96,7 @@ class RamController extends Controller
     public function update(Request $request, Ram $ram)
     {
         $data = $request->validate([
-            'Nombre_del_producto'=>'required',
+            'Nombre_del_producto'=>'required|unique:rams',
             'Marca'=>'required',
             'Tegnologia_de_la_memoria_ram'=>'required',
             'Tamaño_de_la_memoria'=>'required',

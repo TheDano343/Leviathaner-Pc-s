@@ -50,7 +50,7 @@ class MouseController
     public function store(Request $request)
     {
       $params = $request->validate([
-            'Nombre_del_producto'=>'required',
+            'Nombre_del_producto'=>'required|unique:mice',
             'Marca'=>'required',
             'Tipo_de_conectividad'=>'required',
             'Tecnologia_de_deteccion_de_movimiento'=>'required',
@@ -92,7 +92,7 @@ class MouseController
     public function update(Request $request, Mouse $mouse)
     {
        $data = $request->validate([
-            'Nombre_del_producto'=>'required',
+            'Nombre_del_producto'=>'required|unique:mice',
             'Marca'=>'required',
             'Tipo_de_conectividad'=>'required',
             'Tecnologia_de_deteccion_de_movimiento'=>'required',
