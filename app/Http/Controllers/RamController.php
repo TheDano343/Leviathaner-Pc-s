@@ -25,7 +25,6 @@ class RamController extends Controller
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
         
-        ->latest('idRam')
         ->paginate(10);
         return view('ram.index',compact('rams','busqueda'));
     }

@@ -22,7 +22,6 @@ class PantallaController
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
         
-        ->latest('idPantallas')
         ->paginate(10);
         return view('pantalla.index',compact('pantallas','busqueda'));
     }

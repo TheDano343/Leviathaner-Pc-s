@@ -20,7 +20,7 @@ class CpuController extends Controller
         ->orWhere('Velocidad_del_cpu','LIKE','%'.$busqueda.'%')
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
    
-        ->latest('idCpu')
+
         ->paginate(10);
         return view('cpu.index',compact('cpus','busqueda'));
     }

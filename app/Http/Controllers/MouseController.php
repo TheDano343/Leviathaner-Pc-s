@@ -22,7 +22,6 @@ class MouseController
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
         
-        ->latest('idMouse')
         ->paginate(10);
         return view('mouse.index',compact('mouses','busqueda'));
     }

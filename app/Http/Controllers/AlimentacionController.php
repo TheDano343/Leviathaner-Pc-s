@@ -29,7 +29,7 @@ class AlimentacionController extends Controller
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
         ->orWhere('Largo_y_ancho','LIKE','%'.$busqueda.'%')
 
-        ->latest('idAlimentacion')
+
         ->paginate(10);
         return view('alimentacion.index',compact('alimentaciones','busqueda'));
     }
@@ -56,7 +56,7 @@ class AlimentacionController extends Controller
     public function store(Request $request)
     {
        $params = $request->validate([
-            'Nombre_producto' => 'required',
+            'Nombre_producto' => 'required|unique:alimentacions',
             'Nombre_modelo' => 'required',
             'Marca' => 'required',
             'Dispositivos_compatibles' => 'required',
@@ -109,7 +109,7 @@ class AlimentacionController extends Controller
     public function update(Request $request, Alimentacion $alimentacion)
     {
         $data = $request->validate([
-            'Nombre_producto' => 'required',
+            'Nombre_producto' => 'required|unique:alimentacions',
             'Nombre_modelo' => 'required',
             'Marca' => 'required',
             'Dispositivos_compatibles' => 'required',

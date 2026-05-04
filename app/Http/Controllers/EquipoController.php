@@ -43,10 +43,6 @@ class EquipoController extends Controller
         ->orWhere('Precio','LIKE','%'.$busqueda.'%')
 
 
-
-
-   
-        ->latest('idEquipos')
         ->paginate(10);
         return view('equipo.index',compact('equipos','busqueda'));
     }

@@ -22,7 +22,6 @@ class GraficaController extends Controller
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
 
-        ->latest('idTarjetaGrafica')
         ->paginate(10);
         return view('grafica.index',compact('graficas','busqueda'));
     }

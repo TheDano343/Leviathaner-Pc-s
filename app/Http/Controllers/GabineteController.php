@@ -28,7 +28,6 @@ class GabineteController
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
 
-        ->latest('idGabinetes')
         ->paginate(10);
         return view('Gabinete.index',compact('gabinetes','busqueda'));
     }

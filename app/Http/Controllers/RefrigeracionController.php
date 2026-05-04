@@ -26,7 +26,6 @@ class RefrigeracionController extends Controller
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
 
-        ->latest('idSistema_refrigeracion')
         ->paginate(10);
         return view('refrigeracion.index',compact('refrigeraciones','busqueda'));
     }

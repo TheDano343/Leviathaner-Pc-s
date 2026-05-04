@@ -24,7 +24,6 @@ class ProcesadorController
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
         
-        ->latest('idProcesador')
         ->paginate(10);
         return view('procesadores.index',compact('procesadores','busqueda'));
     }

@@ -28,7 +28,6 @@ class MadreController extends Controller
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
 
-        ->latest('idTarjetas_Madre')
         ->paginate(10);
         return view('madre.index',compact('madres','busqueda'));
     }

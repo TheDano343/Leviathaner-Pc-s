@@ -25,7 +25,6 @@ class TecladoController
         ->orWhere('Descripcion','LIKE','%'.$busqueda.'%')
 
 
-        ->latest('idTeclado')
         ->paginate(10);
         return view('teclados.index',compact('teclados','busqueda'));
     }
