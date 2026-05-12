@@ -10,10 +10,13 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = User::paginate(10);
-        return view('user.index', compact('usuarios'));
+        $busqueda = $request->busqueda;
+        $users = User::where('name','LIKE','%'.$busqueda.'%')
+                     ->orWhere('email','LIKE','%'.$busqueda.'%')
+        ->paginate(10);
+        return view('user.index',compact('users','busqueda'));
     }
 
     /**
@@ -21,8 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $usuarios = User::paginate(10);
-        return view('user.create', compact('usuarios'));
+        return view('user.create');
     }
 
     /**
@@ -31,11 +33,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name',
-            'email',
-            'es_admin'
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
         ]);
-
+        User::create($request->all());
+        return redirect()->route('user.index')->with('success','Usuario Agregado');
     }
 
     /**
@@ -46,12 +49,12 @@ class UserController extends Controller
         //
     }
 
-    /*
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(User $user)
     {
-       return view('user.edit',compact('user'));
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -61,13 +64,11 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required',
-            'es_admin' => 'required'
-        ]);
-
+            'email' => 'required|unique:users',
+            'password' => 'required'
+        ]); 
         $user->update($data);
-        return redirect(route('user.index'));
-
+        return redirect()->route('user.index')->with('update','Usuario Actualizado');
     }
 
     /**
@@ -76,6 +77,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('destroy','Usuario Eliminado');
     }
 }
